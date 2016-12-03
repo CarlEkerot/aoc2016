@@ -22,5 +22,5 @@ def get_dist_visited_twice(dirs):
     return abs(pos.real) + abs(pos.imag)
 
 
-print get_dist(parse())
-print get_dist_visited_twice(parse())
+print(get_dist(parse()))
+print(get_dist_visited_twice(parse()))

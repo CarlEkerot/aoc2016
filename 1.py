@@ -11,7 +11,7 @@ DIRS = [
 def parse():
     with open("1.txt") as f:
         matches = re.findall("(([LR])(\d+)),?\s*", f.read())
-        return map(lambda (a, b, c): (b, int(c)), matches)
+        return map(lambda m: (m[1], int(m[2])), matches)
 
 
 def get_dist(directions):
