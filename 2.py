@@ -24,7 +24,7 @@ m = {
 
 def parse():
     with open("2.txt") as f:
-        return map(str.strip, f.readlines())
+        return list(map(str.strip, f.readlines()))
 
 
 def add(pos, delta, pad):
