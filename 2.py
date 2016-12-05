@@ -15,15 +15,15 @@ pad_b = [
 ]
 
 m = {
-    "U": [-1, 0],
-    "R": [0, 1],
-    "D": [1, 0],
-    "L": [0, -1],
+    'U': [-1, 0],
+    'R': [0, 1],
+    'D': [1, 0],
+    'L': [0, -1],
 }
 
 
 def parse():
-    with open("2.txt") as f:
+    with open('2.txt') as f:
         return list(map(str.strip, f.readlines()))
 
 
@@ -35,7 +35,7 @@ def add(pos, delta, pad):
 def solve(ins, pad, start):
     for i in ins:
         y, x = reduce(lambda a, b: add(a, b, pad), [m[d] for d in i], start)
-        yield "%X" % pad[y][x]
+        yield '%X' % pad[y][x]
 
 ins = parse()
 print(''.join(solve(ins, pad_a, [1, 1])))

@@ -1,5 +1,5 @@
 def parse():
-    with open("3.txt") as f:
+    with open('3.txt') as f:
         return list(map(lambda l: list(map(int, l.split())), f.readlines()))
 
 

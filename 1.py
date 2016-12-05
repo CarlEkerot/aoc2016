@@ -9,8 +9,8 @@ DIRS = [
 
 
 def parse():
-    with open("1.txt") as f:
-        matches = re.findall("(([LR])(\d+)),?\s*", f.read())
+    with open('1.txt') as f:
+        matches = re.findall('(([LR])(\d+)),?\s*', f.read())
         return map(lambda m: (m[1], int(m[2])), matches)
 
 
@@ -39,7 +39,7 @@ def get_dist_visited_twice(directions):
                 return sum(curr_pos)
             else:
                 visited[tuple(curr_pos)] = 1
-    raise Exception("No location visited twice")
+    raise Exception('No location visited twice')
 
 
 print(get_dist(parse()))
