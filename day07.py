@@ -2,7 +2,7 @@ import re
 
 
 def parse():
-    with open('7.txt') as f:
+    with open('day07.txt') as f:
         return [(re.split(r'\[\w+\]', l), re.findall(r'\[(\w+)\]', l)) for l in map(str.strip, f.readlines())]
 
 

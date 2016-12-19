@@ -22,7 +22,7 @@ ops = [
 
 
 def parse():
-    with open('8.txt') as f:
+    with open('day08.txt') as f:
         for l in f:
             for p, o in ops:
                 m = re.match(p, l)

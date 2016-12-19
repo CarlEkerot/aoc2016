@@ -42,7 +42,7 @@ def decompress2(s):
 
 
 def parse():
-    with open('9.txt') as f:
+    with open('day09.txt') as f:
         return list(f.read().strip())
 
 p = parse()

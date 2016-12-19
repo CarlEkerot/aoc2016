@@ -23,7 +23,7 @@ m = {
 
 
 def parse():
-    with open('2.txt') as f:
+    with open('day02.txt') as f:
         return list(map(str.strip, f.readlines()))
 
 

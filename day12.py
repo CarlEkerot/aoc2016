@@ -1,5 +1,5 @@
 def parse():
-    with open('12.txt') as f:
+    with open('day12.txt') as f:
         return [l.split() for l in f]
 
 

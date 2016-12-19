@@ -11,7 +11,7 @@ nodes = defaultdict(lambda: {'chips': []})
 
 
 def parse():
-    with open('10.txt') as f:
+    with open('day10.txt') as f:
         for l in f.readlines():
             if l.startswith('bot'):
                 b, l, r = give_pattern.match(l).groups()

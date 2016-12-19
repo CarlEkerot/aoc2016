@@ -2,7 +2,7 @@ from collections import Counter
 
 
 def parse():
-    with open('6.txt') as f:
+    with open('day06.txt') as f:
         return map(str.strip, f.readlines())
 
 

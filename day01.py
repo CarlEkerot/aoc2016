@@ -2,7 +2,7 @@ import re
 
 
 def parse():
-    with open("1.txt") as f:
+    with open("day01.txt") as f:
         matches = re.findall("(([LR])(\d+)),?\s*", f.read())
         dir = 1j
         movs = []
