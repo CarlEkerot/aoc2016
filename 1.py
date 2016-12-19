@@ -1,45 +1,25 @@
 import re
 
-DIRS = [
-    [0, 1],   # North
-    [1, 0],   # East
-    [0, -1],  # South
-    [-1, 0],  # West
-]
-
 
 def parse():
-    with open('1.txt') as f:
-        matches = re.findall('(([LR])(\d+)),?\s*', f.read())
-        return map(lambda m: (m[1], int(m[2])), matches)
+    with open("1.txt") as f:
+        matches = re.findall("(([LR])(\d+)),?\s*", f.read())
+        dir = 1j
+        movs = []
+        for (_, d, s) in matches:
+            dir *= {'R': -1j, 'L': 1j}[d]
+            movs += [dir]*int(s)
+        return movs
 
 
-def get_dist(directions):
-    curr_dir = 0  # Start facing north
-    curr_pos = [0, 0]
-
-    for (rot, steps) in directions:
-        curr_dir = (curr_dir + {'R': 1, 'L': -1}[rot]) % 4
-        curr_pos[0] += steps * DIRS[curr_dir][0]
-        curr_pos[1] += steps * DIRS[curr_dir][1]
-    return sum(curr_pos)
+def get_dist(dirs):
+    return abs(sum(dirs).real) + abs(sum(dirs).imag)
 
 
-def get_dist_visited_twice(directions):
-    curr_dir = 0  # Start facing north
-    curr_pos = [0, 0]
-    visited = {tuple(curr_pos): 1}
-
-    for (rot, steps) in directions:
-        curr_dir = (curr_dir + {'R': 1, 'L': -1}[rot]) % 4
-        for i in range(1, steps+1):
-            curr_pos[0] += DIRS[curr_dir][0]
-            curr_pos[1] += DIRS[curr_dir][1]
-            if tuple(curr_pos) in visited:
-                return sum(curr_pos)
-            else:
-                visited[tuple(curr_pos)] = 1
-    raise Exception('No location visited twice')
+def get_dist_visited_twice(dirs):
+    sums = [sum(dirs[:i+1]) for i in range(len(dirs))]
+    pos = [d for i, d in enumerate(sums) if d in sums[:i]][0]
+    return abs(pos.real) + abs(pos.imag)
 
 
 print(get_dist(parse()))
