@@ -8,7 +8,7 @@ def rot(s, n):
 
 def parse():
     with open('day04.txt') as f:
-        return [re.match("([a-z-]+)(\d+)\[(\w+)\]", l).groups() for l in f]
+        return [re.match('([a-z-]+)(\d+)\[(\w+)\]', l).groups() for l in f]
 
 
 def checksum(name):
