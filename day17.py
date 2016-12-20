@@ -12,8 +12,7 @@ def hash_moves(seq):
 
 def legal_moves(pos, seq):
     for m in hash_moves(seq):
-        new_pos = (pos[0] + m[0],  pos[1] + m[1])
-        if 0 <= new_pos[0] < shape[0] and 0 <= new_pos[1] < shape[1]:
+        if 0 <= pos[0] + m[0] < shape[0] and 0 <= pos[1] + m[1] < shape[1]:
             yield m
 
 
