@@ -18,7 +18,7 @@ def parse():
 
 def viable_nodes(nodes):
     flat = [n for row in nodes for n in row]
-    return [a for a, b in permutations(flat, 2) if a.used > 0 and a.used <= b.avail]
+    return [a for a, b in permutations(flat, 2) if 0 < a.used <= b.avail]
 
 
 def print_nodes(nodes):
